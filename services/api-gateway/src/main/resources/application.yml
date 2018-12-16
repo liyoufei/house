@@ -1,0 +1,25 @@
+server:
+  port: 8080
+
+eureka:
+  client:
+    register-with-eureka: false
+
+  service-url:
+    defaultZone: http://127.0.0.1:8666/eureka
+
+spring:
+  application:
+    name: api-gateway
+
+logbook:
+  write:
+    level: info
+
+  format:
+    style: curl
+
+#脱离eureka的依赖，通过Ribbon中的DefaultClientConfigImpl注入相应的配置
+user:
+  ribbon:
+    listOfServers: 127.0.0.1:8083,127.0.0.1:8084
